@@ -1,4 +1,4 @@
-pragma solidity 0.4.21;
+pragma solidity 0.4.19;
 
 contract Email {
 
@@ -43,7 +43,7 @@ contract Email {
         accounts[recieverAddress].inbox.mail.push(mail);
     }
     
-    function getUnreadEmail() view public returns (uint){
+    function getUnreadEmail() view public returns (uint) {
         Account memory acct = accounts[msg.sender];
         return acct.inbox.mail.length;
     }
@@ -51,7 +51,7 @@ contract Email {
     function getLastEmail() view public returns (string, string, string) {
         Account memory acct = accounts[msg.sender];
         uint len = acct.inbox.mail.length;
-        if(len <= 0){
+        if (len <= 0) {
             return;
         } 
         
@@ -61,7 +61,9 @@ contract Email {
     }
 
     function kill() public {
-        if (msg.sender == owner) selfdestruct(owner);
+        if (msg.sender == owner) {
+            selfdestruct(owner);
+        } 
     }
 }
 

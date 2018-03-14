@@ -1,0 +1,21 @@
+unstoppable-email/node_modules/
+
+# dependencies
+unstoppable-email/node_modules
+
+# testing
+unstoppable-email/coverage
+
+# production
+unstoppable-email/build
+
+# misc
+unstoppable-email/.DS_Store
+unstoppable-email/.env.local
+unstoppable-email/.env.development.local
+unstoppable-email/.env.test.local
+unstoppable-email/.env.production.local
+
+unstoppable-email/npm-debug.log*
+unstoppable-email/yarn-debug.log*
+unstoppable-email/yarn-error.log*
