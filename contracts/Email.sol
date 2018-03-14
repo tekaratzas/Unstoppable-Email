@@ -51,15 +51,16 @@ contract Email {
         return acct.inbox.mail.length;
     }
     
-    function getLastEmail() public returns (address sender, string subject, string message) {
+    function getLastEmail() public returns (string, string, string) {
         Account memory acct = accounts[msg.sender];
         uint len = acct.inbox.mail.length;
-        if(len > 0){
-            Mail memory m = acct.inbox.mail[len - 1];
-            return (m.sender, m.subject, m.message);
-        } else {
+        if(len <= 0){
             return;
-        }
+        } 
+        
+        Mail memory m = acct.inbox.mail[len - 1];
+        string memory sender = accounts[m.sender].emailAddress;
+        return (sender, m.subject, m.message);
     }
 
     function kill() public {
