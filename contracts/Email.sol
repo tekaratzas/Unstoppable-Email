@@ -1,8 +1,5 @@
 pragma solidity 0.4.21;
 
-pragma experimental ABIEncoderV2;
-
-
 contract Email {
 
     address public owner;
@@ -31,8 +28,8 @@ contract Email {
         owner = msg.sender;
     }
 
-    function addAccount(string emailAddress) public {
-        var acct = accounts[msg.sender];
+    function addAccount(string emailAddress) view public {
+        Account memory acct = accounts[msg.sender];
         acct.emailAddress = emailAddress;
     }
     
@@ -46,12 +43,12 @@ contract Email {
         accounts[recieverAddress].inbox.mail.push(mail);
     }
     
-    function getUnreadEmail() public returns (uint){
+    function getUnreadEmail() view public returns (uint){
         Account memory acct = accounts[msg.sender];
         return acct.inbox.mail.length;
     }
     
-    function getLastEmail() public returns (string, string, string) {
+    function getLastEmail() view public returns (string, string, string) {
         Account memory acct = accounts[msg.sender];
         uint len = acct.inbox.mail.length;
         if(len <= 0){
