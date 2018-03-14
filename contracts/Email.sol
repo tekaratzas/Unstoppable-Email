@@ -1,17 +1,25 @@
 pragma solidity 0.4.21;
 
+pragma experimental ABIEncoderV2;
+
 
 contract Email {
 
     address public owner;
-    mapping(address => Inbox) public inboxes;
+    mapping(address => Account) public accounts;
 
     struct Mail {
         uint256 id;
         address sender;
         address reciever; 
-        bytes32 message;
-        bytes32 subject;
+        string message;
+        string subject;
+        bool read;
+    }
+    
+    struct Account {
+        Inbox inbox;
+        string emailAddress;
     }
 
     struct Inbox {
@@ -23,24 +31,34 @@ contract Email {
         owner = msg.sender;
     }
 
-    function sendMail(address reciever, bytes32 message, bytes32 subject) public {
-        Mail memory mail;
-        mail.sender = msg.sender;
-        mail.reciever = reciever;
-        mail.message = message;
-        mail.subject = subject;
-
-        inboxes[reciever].mail.push(mail);
+    function addAccount(string emailAddress) public {
+        var acct = accounts[msg.sender];
+        acct.emailAddress = emailAddress;
     }
-
-    function loadInbox(address user) public returns (bytes32[] messages, bytes32[] subjects, address[] senders) {
-        Mail[] memory mail = inboxes[user].mail;
-        uint len = mail.length;
-
-        for (uint i = 0; i < len; i++) {
-            messages[i] = mail[i].message;
-            subjects[i] = mail[i].subject;
-            senders[i] = mail[i].sender;
+    
+    function sendMail(address recieverAddress, string subject, string message) public {
+        Mail memory mail; 
+        mail.sender = msg.sender;
+        mail.reciever = recieverAddress;
+        mail.subject = subject;
+        mail.message = message;
+        
+        accounts[recieverAddress].inbox.mail.push(mail);
+    }
+    
+    function getUnreadEmail() public returns (uint){
+        Account memory acct = accounts[msg.sender];
+        return acct.inbox.mail.length;
+    }
+    
+    function getLastEmail() public returns (address sender, string subject, string message) {
+        Account memory acct = accounts[msg.sender];
+        uint len = acct.inbox.mail.length;
+        if(len > 0){
+            Mail memory m = acct.inbox.mail[len - 1];
+            return (m.sender, m.subject, m.message);
+        } else {
+            return;
         }
     }
 
