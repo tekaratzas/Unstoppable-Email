@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Web3 from 'web3';
-
+import Eth from 'web3-eth';
+import { setEth } from './actions/eth';
 
 export default connect(state => ({
-
+    eth: state.eth
 }), {
-
+    setEth
 })(class Root extends Component {
     constructor(props){
         super(props);
 
-        var web3 = new Web3(Web3.givenProvider || "ws://localhost:8546");
+        this.eth = new Eth(Eth.givenProvider || 'ws://some.local-or-remote.node:8546');
+    }
+    componentWillMount(){
+        this.props.setEth(this.eth);
     }
     render(){
         return(
-            <h1>Your Unstoppable Email</h1>
+            <div>
+                 <h1>Your Unstoppable Email</h1>
+            </div>
         )
     }
 });
