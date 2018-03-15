@@ -6,7 +6,9 @@ import NewEmail from './../NewEmail';
 import './style.css';
 
 
-export default connect()(class Home extends Component {
+export default connect(state => ({}), {
+    
+})(class Home extends Component {
     render() {
         return (
             <div className={"home-container"}>
