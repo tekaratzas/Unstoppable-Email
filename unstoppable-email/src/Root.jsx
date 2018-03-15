@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Eth from 'web3-eth';
 import { setEth } from './actions/eth';
+import Tabs from './components/Tabs';
+import Inbox from './views/Inbox';
+import NewEmail from './views/NewEmail';
 
 export default connect(state => ({
     eth: state.eth
@@ -20,6 +23,7 @@ export default connect(state => ({
         return(
             <div>
                  <h1>Your Unstoppable Email</h1>
+                 <Tabs tabs={{"Inbox": Inbox, "Send": NewEmail}}/>
             </div>
         )
     }
