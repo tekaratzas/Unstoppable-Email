@@ -5,7 +5,7 @@ export default connect(state => ({
     inbox: state.inbox
 }))(class Inbox extends Component {
     renderMail(){
-        this.props.inbox.mail.length ? null : <p>You have no mail. Please find a job and/or friends and come back</p>
+        return this.props.inbox.mail.length ? null : <p>You have no mail. Please find a job and/or friends and come back.</p>
     }
     render(){
         return (

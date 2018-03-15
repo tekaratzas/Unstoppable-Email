@@ -7,6 +7,10 @@
   height: 80px;
 }
 
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
 .App-header {
   background-color: #222;
   height: 150px;
