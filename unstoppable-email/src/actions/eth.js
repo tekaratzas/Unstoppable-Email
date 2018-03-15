@@ -1,7 +1,7 @@
-import { SET_ETH } from './index';
+import { SET_CONTRACT } from './index';
 
-export function setEth(eth) {
+export function setContract(eth) {
     return dispatch => {
-        dispatch({type: SET_ETH, eth});
+        dispatch({type: SET_CONTRACT, eth});
     }
 }

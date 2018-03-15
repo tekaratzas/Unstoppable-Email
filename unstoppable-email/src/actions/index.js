@@ -1,5 +1,5 @@
 // eth
-export const SET_ETH = "SET_ETH";
+export const SET_CONTRACT = "SET_CONTRACT";
 
 // inbox
 export const POPULATE_EMAILS = "POPULATE EMAILS";

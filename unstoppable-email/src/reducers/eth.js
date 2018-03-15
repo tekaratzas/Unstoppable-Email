@@ -1,4 +1,4 @@
-import { SET_ETH } from './../actions/';
+import { SET_CONTRACT } from './../actions/';
 
 const initialState = {
     eth: {}
@@ -6,7 +6,7 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
     switch(action.type) {
-        case SET_ETH:
+        case SET_CONTRACT:
             return {
                 ...state,
                 eth: action.eth
