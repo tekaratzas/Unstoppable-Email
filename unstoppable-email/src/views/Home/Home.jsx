@@ -10,7 +10,6 @@ export default connect()(class Home extends Component {
     render() {
         return (
             <div className={"home-container"}>
-                {/* <MenuBar /> */}
                 <div className={"home-content"}>
                     <h1>Your Unstoppable Email</h1>
                     <Tabs tabs={{"Inbox": <Inbox />, "Send": <NewEmail />}}/>

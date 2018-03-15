@@ -7,7 +7,7 @@ export default class Tabs extends Component {
         super(props);
 
         this.state = {
-            selectedTab: "",
+            selectedTab: Object.keys(this.props.tabs)[0] || "",
         }
     }
     setSelectedTab(selectedTab){
