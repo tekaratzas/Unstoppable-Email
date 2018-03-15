@@ -14,7 +14,8 @@ export default class Tabs extends Component {
         this.setState({selectedTab});
     }
     renderHeaders(){
-        return Object.keys(this.props.tabs).map((t, i) => <TabHeader key={i} selected={t === this.state.selectedTab} onTabClick={() => this.setSelectedTab(t)}>{t}</TabHeader>);
+        return Object.keys(this.props.tabs).map((t, i) => 
+            <TabHeader key={i} selected={t === this.state.selectedTab} onTabClick={() => this.setSelectedTab(t)}>{t}</TabHeader>);
     }
     renderTab(){
         return this.props.tabs[this.state.selectedTab || Object.keys(this.props.tabs)[0]];
