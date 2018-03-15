@@ -1,7 +1,7 @@
 import { SET_CONTRACT } from './../actions/';
 
 const initialState = {
-    eth: {}
+    contract: {}
 }
 
 export default (state = initialState, action = {}) => {
@@ -9,7 +9,7 @@ export default (state = initialState, action = {}) => {
         case SET_CONTRACT:
             return {
                 ...state,
-                eth: action.eth
+                contract: action.contract
             }
         default: return state;
     }

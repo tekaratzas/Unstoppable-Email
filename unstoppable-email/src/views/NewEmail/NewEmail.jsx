@@ -7,6 +7,7 @@ export default connect(state => ({
 }))(class CreateEmail extends Component {
     handleSendEmail(values){
         console.log(values);
+        console.log(this.props.eth.contract.sendMail);
     }
     render() {
         return (

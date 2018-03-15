@@ -9,7 +9,7 @@ let NewEmailForm = ({
         <Field name="reciever" label="To:" component={ FormField } type="text"/>
         <Field name="subject" label="Subject" component={ FormField } type="text"/>
         <Field name="message" component={ FormTextArea } type="text"/>
-        <Field label="Submit" component={ FormSubmit } type="submit" />
+        <Field name="submitEmail" label="Submit" component={ FormSubmit } type="submit" />
     </form>
 
 NewEmailForm = reduxForm({
