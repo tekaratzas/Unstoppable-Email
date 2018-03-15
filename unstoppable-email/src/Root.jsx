@@ -23,7 +23,7 @@ export default connect(state => ({
         return(
             <div>
                  <h1>Your Unstoppable Email</h1>
-                 <Tabs tabs={{"Inbox": Inbox, "Send": NewEmail}}/>
+                 <Tabs tabs={{"Inbox": <Inbox />, "Send": <NewEmail />}}/>
             </div>
         )
     }
