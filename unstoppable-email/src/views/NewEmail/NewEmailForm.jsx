@@ -6,8 +6,8 @@ let NewEmailForm = ({
     handleSubmit,
 }) => 
     <form onSubmit={ handleSubmit }>
-        <Field name="reciever" component={ FormField } type="text"/>
-        <Field name="subject" component={ FormField } type="text"/>
+        <Field name="reciever" label="To:" component={ FormField } type="text"/>
+        <Field name="subject" label="Subject" component={ FormField } type="text"/>
         <Field name="message" component={ FormTextArea } type="text"/>
         <Field label="Submit" component={ FormSubmit } type="submit" />
     </form>
