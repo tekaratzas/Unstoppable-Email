@@ -19,9 +19,6 @@ export default connect(state => ({
        }, (err, result) => {
            console.log(result);
        });
-       console.log(contract);
-       console.log(accounts);
-
     }
     render() {
         return (
