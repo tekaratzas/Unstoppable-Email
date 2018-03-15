@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TabHeader from './TabHeader';
+import './style.css';
 
 export default class Tabs extends Component {
     constructor(props){
@@ -13,15 +14,17 @@ export default class Tabs extends Component {
         this.setState({selectedTab});
     }
     renderHeaders(){
-        return Object.keys(this.props.tabs).map((t, i) => <TabHeader key={i} onTabClick={() => this.setSelectedTab(t)}>{t}</TabHeader>);
+        return Object.keys(this.props.tabs).map((t, i) => <TabHeader key={i} selected={t === this.state.selectedTab} onTabClick={() => this.setSelectedTab(t)}>{t}</TabHeader>);
     }
     renderTab(){
         return this.props.tabs[this.state.selectedTab || Object.keys(this.props.tabs)[0]];
     }
     render(){
         return(
-            <div>
-                {this.renderHeaders()}
+            <div className={"tab-container"}>
+                <div className={"headers"}>
+                    {this.renderHeaders()}
+                </div>
                 {this.renderTab()}
             </div>
         )

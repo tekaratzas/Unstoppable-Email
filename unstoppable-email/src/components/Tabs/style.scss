@@ -1,0 +1,22 @@
+$header-bg: #3498db;
+
+.tab-container{
+    display: flex;
+    flex-direction: column;
+
+    .headers{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+.tab-header{
+    background: $header-bg;
+    color: white;
+    padding: 2rem;
+}
+
+.selected {
+    background: darken($header-bg, 10%);
+}
