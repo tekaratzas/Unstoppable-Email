@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-export default connect()(class Inbox extends Component {
+export default connect(state => ({
+    inbox: state.inbox
+}))(class Inbox extends Component {
+    renderMail(){
+        this.props.inbox.mail.length ? null : <p>You have no mail. Please find a job and/or friends and come back</p>
+    }
     render(){
         return (
-            <h1>Inbox</h1>
+            <div>
+                <h1>Inbox</h1>
+                { this.renderMail() }
+            </div>
         )
     }
 })

@@ -1,7 +1,7 @@
 import { POPULATE_EMAILS } from '../actions';
 
 const initialState = {
-    emails: [],
+    mail: [],
 }
 
 export default (state = initialState, action = {}) => {
@@ -9,7 +9,7 @@ export default (state = initialState, action = {}) => {
         case POPULATE_EMAILS:
             return {
                 ...state,
-                emails: action.emails
+                mail: action.mail
             }
         default: return state;
     }

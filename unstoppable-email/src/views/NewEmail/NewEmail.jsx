@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import NewEmailForm from './NewEmailForm';
 
-export default connect()(class CreateEmail extends Component {
+export default connect(state => ({
+    eth: state.eth
+}))(class CreateEmail extends Component {
     handleSendEmail(values){
         console.log(values);
     }
@@ -10,7 +12,7 @@ export default connect()(class CreateEmail extends Component {
         return (
             <div>
                 <h1>New Email</h1>
-                <NewEmailForm handleSubmit={this.handleSendEmail}/>
+                <NewEmailForm onSubmit={this.handleSendEmail}/>
             </div>
         )
     }
