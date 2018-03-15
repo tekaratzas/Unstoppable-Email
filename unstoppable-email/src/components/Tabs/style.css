@@ -1,6 +1,7 @@
 .tab-container {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  width: 100%; }
   .tab-container .headers {
     display: flex;
     flex-direction: row;
@@ -9,7 +10,7 @@
 .tab-header {
   background: #3498db;
   color: white;
-  padding: 2rem; }
+  padding: 1rem; }
 
 .selected {
   background: #217dbb; }
